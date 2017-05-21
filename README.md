@@ -15,34 +15,35 @@
         - user -> jeden do wielu (order)
         Struktura:
             -id
-            -name (name + surname)
+            -name
+            -surname
             -email
             -phone
-            -adress
+            -address
 
     Order:
-
         Struktura:
-            -id 
+            - id 
             - numer kat zlecenia (KERG)
             - tytuł
-            - id_usera (zleceniodawcy) -> wiele (zamówień) do jendego (usera)
-            - id_admina (właściciela) -> wiele (zamówień) do jednego admina/wykonawcy
+            - REL id_usera (zleceniodawcy) -> wiele (zamówień) do jednego (usera)
+            - REL id_admina (właściciela) -> wiele (zamówień) do jednego admina/wykonawcy
             - data przyjęcia zamównia
-            - id_status -> jeden do jednego (status)
+            - REL id_status -> jeden do jednego (status)
             - data statusu (zmiany statusu)
     
-    Status (odnoszący się do Order -> jeden do jednego): 
-        id
-        tytuł 
-        - zgłoszenie pracy
-        - odebranie materiałów
-        - wykonanie pomiaru 
-        - złożenie operatu
-        - przekazanie operatu do ośrodka (info nad mocy prawnej od 2 tyg do 1 miesiąca)
-        - odebranie operatu z ośrodka
-        - przekazanie operatu zleceniodawcy
-        - zakończenie zlecenia
+    Status: (odnoszący się do Order -> jeden do jednego)
+        -> id
+        -> tytuł: 
+            - zgłoszenie pracy
+            - odebranie materiałów
+            - wykonanie pomiaru 
+            - złożenie operatu
+            - przekazanie operatu do ośrodka (info nad mocy prawnej od 2 tyg do 1 miesiąca)
+            - odebranie operatu z ośrodka
+            - przekazanie operatu zleceniodawcy
+            - zakończenie zlecenia
+    
     
     Box:
         - id
