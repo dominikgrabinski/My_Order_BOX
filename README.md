@@ -21,13 +21,13 @@
             -phone
             -address
 
-    Order:
+    Commission:
         Struktura:
             - id 
             - numer kat zlecenia (KERG)
             - tytuł
             - REL id_usera (zleceniodawcy) -> wiele (zamówień) do jednego (usera)
-            - REL id_admina (właściciela) -> wiele (zamówień) do jednego admina/wykonawcy
+            - REL id_company (właściciela) -> wiele (zamówień) do jednego admina/wykonawcy
             - data przyjęcia zamównia
             - REL id_status -> jeden do jednego (status)
             - data statusu (zmiany statusu)
@@ -45,7 +45,7 @@
             - zakończenie zlecenia
     
     
-    Box:
+    History:
         - id
         - id_admina
         - id_zleceniodawcy
@@ -71,3 +71,6 @@
     Zleceniodawca (customer)
     - sprawdzenie statusu zlecenia 
     - sprawdzenie historii odnosnie zamówienia
+
+TODO: 
+add status do history
