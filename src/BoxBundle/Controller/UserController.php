@@ -7,6 +7,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class UserController extends Controller
 {
+    
+    /**
+     * @Route("/")
+     */
+    public function indexAction()
+    {
+        return $this->render('BoxBundle:Default:index.html.twig');
+    }
     /**
      * @Route("/user")
      */

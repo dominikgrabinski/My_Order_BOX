@@ -19,14 +19,14 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      * 
      */
     
     private $address;
     
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      * 
      */
     
@@ -93,5 +93,38 @@ class User extends BaseUser
     public function getPhone()
     {
         return $this->phone;
+    }
+
+    /**
+     * Add commission
+     *
+     * @param \BoxBundle\Entity\Commission $commission
+     * @return User
+     */
+    public function addCommission(\BoxBundle\Entity\Commission $commission)
+    {
+        $this->commission[] = $commission;
+
+        return $this;
+    }
+
+    /**
+     * Remove commission
+     *
+     * @param \BoxBundle\Entity\Commission $commission
+     */
+    public function removeCommission(\BoxBundle\Entity\Commission $commission)
+    {
+        $this->commission->removeElement($commission);
+    }
+
+    /**
+     * Get commission
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommission()
+    {
+        return $this->commission;
     }
 }

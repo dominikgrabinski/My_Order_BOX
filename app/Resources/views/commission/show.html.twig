@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Commission</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ commission.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ commission.title }}</td>
+            </tr>
+            <tr>
+                <th>Kerg</th>
+                <td>{{ commission.kERG }}</td>
+            </tr>
+            <tr>
+                <th>Adddate</th>
+                <td>{% if commission.addDate %}{{ commission.addDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Statusdate</th>
+                <td>{% if commission.statusDate %}{{ commission.statusDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('commission_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('commission_edit', { 'id': commission.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
