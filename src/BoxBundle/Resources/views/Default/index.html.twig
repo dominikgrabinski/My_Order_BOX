@@ -2,12 +2,19 @@
 
 {% block body %}
 
-<h1 class="text-center">My Order BOX</h1>
+<h1 class="text-center"> <strong> My Order BOX </strong> </h1>
 
     <p class="text-center">
         <a href="{{ path('fos_user_security_login') }}">
             <button type="button" color="white" class="btn btn-primary">
                 ZALOGUJ SIĘ
+            </button>
+        </a>
+    </p>
+        <p class="text-center">
+        <a href="{{ path('fos_user_registration_register') }}">
+            <button type="button" color="white" class="btn btn-success">
+                ZAREJESTRUJ SIĘ
             </button>
         </a>
     </p>

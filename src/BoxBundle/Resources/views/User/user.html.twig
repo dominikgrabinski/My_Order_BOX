@@ -3,5 +3,17 @@
 {% block title %}BoxBundle:User:user{% endblock %}
 
 {% block body %}
-<h1>Welcome to the User:user page</h1>
+            <div class="container">
+            <div class="pull-right">
+    {% if app.user %}
+    Witaj {{ app.user }} |
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('box_user_admin') }}">PANEL ADMINA</a>
+        {% endif %}
+        |<a href="{{ path('fos_user_security_logout') }}">Wyloguj się</a>
+    
+    
+    {% endif %}
+     </div>
+            </div>
 {% endblock %}

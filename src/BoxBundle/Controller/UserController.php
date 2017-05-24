@@ -24,5 +24,15 @@ class UserController extends Controller
             // ...
         ));
     }
+    
+        /**
+     * @Route("/adminpanel")
+     */
+    public function adminAction()
+    {
+        return $this->render('BoxBundle:User:admin.html.twig', array(
+            // ...
+        ));
+    }
 
 }
