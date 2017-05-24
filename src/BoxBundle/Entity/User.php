@@ -23,7 +23,7 @@ class User extends BaseUser
      * 
      */
     
-    private $address;
+    protected $address;
     
     /**
      * @ORM\Column(type="string", nullable=true)

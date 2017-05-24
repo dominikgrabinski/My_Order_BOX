@@ -74,4 +74,7 @@ fos_user:
     user_class: BoxBundle\Entity\User
     from_email:
         address: "x@x.pl"
-        sender_name: "x"    
+        sender_name: "x"
+    registration:
+        form:
+            type: BoxBundle\Form\UserType        

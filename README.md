@@ -72,5 +72,3 @@
     - sprawdzenie statusu zlecenia 
     - sprawdzenie historii odnosnie zamówienia
 
-TODO: 
-add status do history
