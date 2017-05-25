@@ -3,9 +3,12 @@
 namespace BoxBundle\Controller;
 
 use BoxBundle\Entity\Commission;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use BoxBundle\Entity\History;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Commission controller.
@@ -47,6 +50,7 @@ class CommissionController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($commission);
             $em->flush();
+
 
             return $this->redirectToRoute('commission_show', array('id' => $commission->getId()));
         }
@@ -123,7 +127,7 @@ class CommissionController extends Controller
      *
      * @param Commission $commission The commission entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return Form The form
      */
     private function createDeleteForm(Commission $commission)
     {

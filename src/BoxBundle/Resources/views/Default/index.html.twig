@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<h1 class="text-center"> <strong> My Order BOX </strong> </h1>
+<h1 class="text-center"> <strong> My Business PUSH </strong> </h1>
 
     <p class="text-center">
         <a href="{{ path('fos_user_security_login') }}">
@@ -13,10 +13,13 @@
     </p>
         <p class="text-center">
         <a href="{{ path('fos_user_registration_register') }}">
-            <button type="button" color="white" class="btn btn-success">
+            <button type="button" color="white" class="btn btn-warning">
                 ZAREJESTRUJ SIĘ
             </button>
         </a>
     </p>
-
+    <br><br><br>
+    <div class="text-center">
+        <img src="{{ asset("bundles/box/images/checklist.png") }}" class="img-circle" alt="brak obrazka" style="width:250px;height:250px;">
+    </div>
 {% endblock %}

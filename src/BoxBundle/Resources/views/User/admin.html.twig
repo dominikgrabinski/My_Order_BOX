@@ -3,5 +3,23 @@
 {% block title %}BoxBundle:Admin{% endblock %}
 
 {% block body %}
-<h1>Welcome to the ADMIN</h1>
+    <div class="container">
+        <div class="pull-right">
+            <p class="bg-success">Witaj {{ app.user }} | <a href="{{ path('fos_user_security_logout') }}">Wyloguj się</a>
+            </p>    
+        </div>
+    </div>
+        <a href="{{ path('commission_new') }}">
+            <button type="button" color="white" class="btn btn-success">
+                Dodaj zlecenie
+            </button>
+                <a href="{{ path('commission_index') }}">
+            <button type="button" color="white" class="btn btn-warning">
+                Zobacz wszystkie zlecenia
+            </button> 
+                <a href="{{ path('status_index') }}">
+            <button type="button" color="white" class="btn btn-info">
+                Statusy
+            </button> 
+        </a>
 {% endblock %}
