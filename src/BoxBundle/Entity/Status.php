@@ -3,6 +3,8 @@
 namespace BoxBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Status
@@ -24,11 +26,18 @@ class Status
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="text")
+     * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
+    /**
+     *@ORM\OneToMany(targetEntity="Commission", mappedBy="status")
+     * 
+     */
+    private $commission;
 
-
+    public function __construct() {
+        $this->commission = new ArrayCollection();
+    }
     /**
      * Get id
      *

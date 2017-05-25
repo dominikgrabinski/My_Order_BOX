@@ -39,7 +39,7 @@
             - odebranie materiałów
             - wykonanie pomiaru 
             - złożenie operatu
-            - przekazanie operatu do ośrodka (info nad mocy prawnej od 2 tyg do 1 miesiąca)
+            - przekazanie operatu do ośrodka - nadanie mocy prawnej od 2 tyg do 1 miesiąca
             - odebranie operatu z ośrodka
             - przekazanie operatu zleceniodawcy
             - zakończenie zlecenia
@@ -72,3 +72,5 @@
     - sprawdzenie statusu zlecenia 
     - sprawdzenie historii odnosnie zamówienia
 
+TO DO:
+change relation in history

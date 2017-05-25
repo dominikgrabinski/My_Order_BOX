@@ -21,11 +21,7 @@ class History
      */
     private $id;
 
-//    /**
-//     * @ORM\OneToOne(targetEntity="User")
-//     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-//     */
-//    private $user;
+
     
     /**
      * @ORM\OneToOne(targetEntity="Status")

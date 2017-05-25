@@ -64,7 +64,7 @@ class Commission
     private $admin;
 
     /**
-     * @ORM\OneToOne(targetEntity="Status")
+     * @ORM\ManyToOne(targetEntity="Status", inversedBy="user")
      * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     private $status;
