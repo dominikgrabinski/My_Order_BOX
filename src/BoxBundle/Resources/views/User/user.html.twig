@@ -18,21 +18,33 @@
             </h3>
         </div>
     </div>
-            
-            
+    <div class="container">        
+        <table class="table table-bordered">
+            <tr>
+                <th>Zleceniodawca:</th>
+                <th>Zleceniobiorca:</th>
+                <th>Tytuł zlecenia:</th>
+                <th>Status zlecenia:</th>
+                <th>Data zmiany zlecenia:</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th>Dodatkowe:</th>
+                {% endif %}
+            </tr>
             {% for row in commision %}
-                Zleceniodawca: {{ row.user }} <br>
-                Zleceniobiorca: {{ row.admin }} <br>
-                Tytuł zlecenia: {{ row.title }} <br>
-                Status zlecenia: {{ row.status.title }} <br>
-                Data zmiany zlecenia: {{ row.addDate|date('H:i d-m-Y') }} <br>
+                <tr><td>{{ row.user }}
+                <td>{{ row.admin }} </td>
+                <td>{{ row.title }} </td>
+                <td><p class="bg-warning">{{ row.status.title }}</p></td>
+                <td><p class="bg-success">{{ row.addDate|date('H:i d-m-Y') }}</p></td>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('commission_index') }}">
+                        <td><a href="{{ path('commission_index') }}">
                             <button type="button" color="white" class="btn btn-info">
                                 Edytuj
                             </button> 
-                        </a>
+                                </a></td></tr>
                     {% endif %}    
                 <hr>
             {% endfor %}
+        </table>
+    </div>        
 {% endblock %}
