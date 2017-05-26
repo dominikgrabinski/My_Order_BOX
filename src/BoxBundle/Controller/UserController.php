@@ -4,6 +4,8 @@ namespace BoxBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use BoxBundle\Entity\User;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
@@ -20,8 +22,18 @@ class UserController extends Controller
      */
     public function userAction()
     {
+        $user = $this->getUser()->getId();
+
+        $em = $this->getDoctrine()->getManager();
+        if ($this->get('security.context')->isGranted('ROLE_ADMIN')){
+            $query = $em->createQuery('SELECT commission FROM BoxBundle:Commission commission WHERE commission.admin ='.$user);
+        }else{
+            $query = $em->createQuery('SELECT commission FROM BoxBundle:Commission commission WHERE commission.user ='.$user);    
+        }
+        $commision = $query->getResult();
+        
         return $this->render('BoxBundle:User:user.html.twig', array(
-            // ...
+                'commision' => $commision 
         ));
     }
     

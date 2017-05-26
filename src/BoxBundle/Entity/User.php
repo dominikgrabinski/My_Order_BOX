@@ -127,4 +127,8 @@ class User extends BaseUser
     {
         return $this->commission;
     }
+    
+//    public function __toString() {
+//        return $this->commission;
+//    }
 }

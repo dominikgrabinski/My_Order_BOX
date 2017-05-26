@@ -5,19 +5,23 @@
 {% block body %}
     <div class="container">
         <div class="pull-right">
-            <p class="bg-success">Witaj {{ app.user }} | <a href="{{ path('fos_user_security_logout') }}">Wyloguj się</a>
-            </p>    
+            <h3>
+                <p class="bg-success">Witaj {{ app.user }} <a href="{{ path('fos_user_security_logout') }}"><button type="button" class="btn btn-warning">Wyloguj się</button></a>
+            </p>
+            </h3>
         </div>
     </div>
         <a href="{{ path('commission_new') }}">
             <button type="button" color="white" class="btn btn-success">
                 Dodaj zlecenie
             </button>
-                <a href="{{ path('commission_index') }}">
+        </a>    
+        <a href="{{ path('commission_index') }}">
             <button type="button" color="white" class="btn btn-warning">
                 Zobacz wszystkie zlecenia
-            </button> 
-                <a href="{{ path('status_index') }}">
+            </button>
+        </a>    
+        <a href="{{ path('status_index') }}">
             <button type="button" color="white" class="btn btn-info">
                 Statusy
             </button> 
