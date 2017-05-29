@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Commission</h1>
+   
+    <h1 class="text-center"><p class="bg-primary">Zlecenie</p></h1>
 
-    <table>
+    <table class="table table-striped">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -40,5 +41,12 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
+        <li>
+        {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('box_user_admin') }}"><button type="button" color="white" class="btn btn-danger">
+                PANEL ADMINA
+            </button></a>
+                {% endif %}
+        </li>        
     </ul>
 {% endblock %}
