@@ -6,26 +6,31 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" class="btn-warning" value="Edytuj" />
-    {{ form_end(edit_form) }}
-
+            <div class="text-center">
+                <input type="submit" class="btn-warning" value="Edytuj" />
+            </div>    
+    {{ form_end(edit_form) }}<br>
+            {{ form_start(delete_form) }}
+                <div class ="text-center">
+                <input type="submit" class="btn-danger" value="Usuń">
+                </div>
+            {{ form_end(delete_form) }}
     <ul>
         <li>
-            <a href="{{ path('commission_index') }}"> <button type="button" color="white" class="btn btn-info">
-Powrót do listy zleceń</button></a>
+            <a href="{{ path('commission_index') }}">
+                <button type="button" color="white" class="btn btn-warning">Powrót do listy zleceń
+                </button>
+            </a>
         </li>
-        <li>
-            {{ form_start(delete_form) }}
-               
-                <input type="submit" class="btn-danger" value="Usuń">
-    
-            {{ form_end(delete_form) }}
-        </li>
+        
+
+        
         <li>
         {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('box_user_admin') }}"><button type="button" color="white" class="btn btn-danger">
-                PANEL ADMINA
-            </button></a>
+            <a href="{{ path('box_user_admin') }}">
+                <button type="button" color="white" class="btn btn-danger">PANEL ADMINA
+                </button>
+            </a>
                 {% endif %}
         </li>
     </ul>
