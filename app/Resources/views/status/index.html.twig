@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Statuses list</h1>
+<div class="container">    
+    <h1 class="text-center">
+        <p class="bg-primary">
+            Lista statusów dotyczących zleceń
+        </p>
+    </h1>
 
-    <table>
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
@@ -19,10 +24,18 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('status_show', { 'id': status.id }) }}">show</a>
+                            <a href="{{ path('status_show', { 'id': status.id }) }}">
+                                <button type="button" class="btn btn-info">
+                                    Pokaż status
+                                </button>
+                            </a>
                         </li>
                         <li>
-                            <a href="{{ path('status_edit', { 'id': status.id }) }}">edit</a>
+                            <a href="{{ path('status_edit', { 'id': status.id }) }}">
+                                <button type="button" class="btn btn-warning">
+                                    Edytuj status
+                                </button>    
+                            </a>
                         </li>
                     </ul>
                 </td>
@@ -33,7 +46,21 @@
 
     <ul>
         <li>
-            <a href="{{ path('status_new') }}">Create a new status</a>
+            <a href="{{ path('status_new') }}">
+                <button type="button" class="btn btn-success">
+                    Stwórz nowy status dotyczący zlecenia
+                </button>
+            </a>
         </li>
+        <li>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('box_user_admin') }}">
+                <button type="button" color="white" class="btn btn-danger">
+                    PANEL ADMINA
+                </button>
+            </a>
+                {% endif %}
+        </li>        
     </ul>
+</div>
 {% endblock %}
