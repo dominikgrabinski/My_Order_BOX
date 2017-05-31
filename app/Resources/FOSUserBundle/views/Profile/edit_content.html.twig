@@ -1,8 +1,16 @@
 {% trans_default_domain 'FOSUserBundle' %}
-
-{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
-    </div>
-{{ form_end(form) }}
+<div class="container">
+    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+        {{ form_widget(form) }}
+        <div>
+            <input type="submit" class="btn btn-info" value="{{ 'profile.edit.submit'|trans }}" />
+        </div>
+    {{ form_end(form) }}
+    <div class="text-center">
+        <a href="{{ path('fos_user_security_login') }}">
+            <button type="button" color="white" class="btn btn-success">
+                Przejdź do strony logowania
+            </button>
+        </a>
+    </div> 
+</div>

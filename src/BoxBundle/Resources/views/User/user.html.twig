@@ -7,7 +7,19 @@
         <div class="pull-right">
             <h3>
                  {% if app.user %}
-                <p class="bg-primary">Witaj: {{ app.user }}</p>
+                     <div class="bg-info">Witaj: {{ app.user }}</div>
+            </h3>    
+                    <a href="{{ path('fos_user_profile_edit') }}">
+                        <button type="button" class="btn btn-info">
+                            Edytuj swój profil
+                        </button>
+                    </a>
+                    <a href="{{ path('fos_user_change_password') }}">
+                        <button type="button" class="btn btn-primary">
+                            Zmień hasło
+                        </button>
+                    </a>    
+               
                 {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('box_user_admin') }}">
                         <button type="button" color="white" class="btn btn-danger">
@@ -21,7 +33,7 @@
                         </button>
                     </a>
             {% endif %}
-            </h3>
+            
         </div>
     </div>
     <div class="container">        
