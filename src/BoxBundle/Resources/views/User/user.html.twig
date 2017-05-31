@@ -7,13 +7,19 @@
         <div class="pull-right">
             <h3>
                  {% if app.user %}
-                Witaj: {{ app.user }}
+                <p class="bg-primary">Witaj: {{ app.user }}</p>
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('box_user_admin') }}"><button type="button" color="white" class="btn btn-danger">
-                PANEL ADMINA
-            </button></a>
+                    <a href="{{ path('box_user_admin') }}">
+                        <button type="button" color="white" class="btn btn-danger">
+                            PANEL ADMINA
+                        </button>
+                    </a>
                 {% endif %}
-                    <a href="{{ path('fos_user_security_logout') }}"><button type="button" class="btn btn-warning">Wyloguj się</button></a>
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        <button type="button" class="btn btn-warning">
+                            Wyloguj się
+                        </button>
+                    </a>
             {% endif %}
             </h3>
         </div>
@@ -30,7 +36,7 @@
                     <th>Dodatkowe:</th>
                 {% endif %}
             </tr>
-            {% for row in commision %}
+            {% for row in commission %}
                 <tr><td>{{ row.user }}
                 <td>{{ row.admin }} </td>
                 <td>{{ row.title }} </td>

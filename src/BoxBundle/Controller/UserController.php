@@ -30,20 +30,28 @@ class UserController extends Controller
         }else{
             $query = $em->createQuery('SELECT commission FROM BoxBundle:Commission commission WHERE commission.user ='.$user);    
         }
-        $commision = $query->getResult();
+        $commission = $query->getResult();
         
         return $this->render('BoxBundle:User:user.html.twig', array(
-                'commision' => $commision 
+                'commission' => $commission 
         ));
     }
     
-        /**
+    /**
      * @Route("/adminpanel")
      */
     public function adminAction()
     {
+        $user = $this->getUser()->getId();
+        $em = $this->getDoctrine()->getManager();
+        
+        $query = $em->createQuery('SELECT commission FROM BoxBundle:Commission commission WHERE commission.admin ='.$user);
+        
+        $commission = $query->getResult();
+        
+        
         return $this->render('BoxBundle:User:admin.html.twig', array(
-            // ...
+            'commission' => $commission
         ));
     }
 
