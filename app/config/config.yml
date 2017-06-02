@@ -77,4 +77,9 @@ fos_user:
         sender_name: "x"
     registration:
         form:
-            type: BoxBundle\Form\UserType        
+            type: BoxBundle\Form\UserType    
+
+fos_message:
+    db_driver: orm
+    thread_class: BoxBundle\Entity\Thread
+    message_class: BoxBundle\Entity\Message            
