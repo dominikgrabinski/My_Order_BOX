@@ -8,6 +8,10 @@ services:
         class: BoxBundle\Form\UserType
         tags:
             - { name: form.type, alias: fos_user_registration_register }
+#    app.form.message:    
+#        class: BoxBundle\Form\MessageType
+#        tags:
+#            - { name: form.type, alias: fos_message_sent }
 #            - { phone: form.type, alias: app_user_profile }
     #service_name:
     #    class: AppBundle\Directory\ClassName

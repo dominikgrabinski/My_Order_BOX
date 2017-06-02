@@ -7,8 +7,17 @@
         <div class="pull-right">
             <h3>
                  {% if app.user %}
-                     <div class="bg-info">Witaj: {{ app.user }}</div>
-            </h3>    
+                    <div class="bg-info">Witaj: {{ app.user }}
+                        <a href="{{ path('fos_message_inbox') }}">
+                            <button type="button" class="btn btn-default">
+                                Wiadomości <span class="badge">{{ fos_message_nb_unread() }}</span>
+                            </button>
+                        </a>  
+                    </div>
+            </h3>
+        </div>                    
+                <br><br><br><br> 
+                <div class="pull-right">            
                     <a href="{{ path('fos_user_profile_edit') }}">
                         <button type="button" class="btn btn-info">
                             Edytuj swój profil
