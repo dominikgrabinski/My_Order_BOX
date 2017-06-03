@@ -50,8 +50,29 @@ class CommissionController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($commission);
             $em->flush();
-
-
+            
+        //message
+            
+            $sender = $this->getUser();
+            $status = $commission->getStatus()->getTitle();
+            $sendToUser = $commission->getUser();
+            $commissionTitle = $commission->getTitle();
+            
+            $threadBuilder = $this->get('fos_message.composer')->newThread();
+            $threadBuilder
+                    ->addRecipient($sendToUser)
+                    ->setSender($sender)
+                    ->setSubject('Rozpoczęcie pracy nad zleceniem: '.$commissionTitle)
+                    ->setBody('Witaj '.$sendToUser . '. Status twojego zlecenia to: "'.$status.'". O dalszych pracach będziesz informowany we wiadomościach ');
+            
+            $sender = $this->get('fos_message.sender');
+            $sender->send($threadBuilder->getMessage());
+        
+        //email
+            
+            
+            
+            
             return $this->redirectToRoute('commission_show', array('id' => $commission->getId()));
         }
 
@@ -85,12 +106,35 @@ class CommissionController extends Controller
      */
     public function editAction(Request $request, Commission $commission)
     {
+        $statusOld = $commission->getStatus()->getTitle();
         $deleteForm = $this->createDeleteForm($commission);
         $editForm = $this->createForm('BoxBundle\Form\CommissionType', $commission);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            
+            $statusNew = $commission->getStatus()->getTitle();  
+            
             $this->getDoctrine()->getManager()->flush();
+            if($statusNew != $statusOld ) {
+        //message    
+                $sender = $this->getUser();
+            
+                $sendToUser = $commission->getUser();
+                $commissionTitle = $commission->getTitle();
+               
+                $threadBuilder = $this->get('fos_message.composer')->newThread();
+               
+                $threadBuilder
+                       ->addRecipient($sendToUser)
+                       ->setSender($sender)
+                       ->setSubject('Zmiana dotycząca statusu zlecenia '.$commissionTitle)
+                       ->setBody('Witaj '.$sendToUser . '. Status twojego zlecenia został zmieniony z "'.$statusOld. '" na "'.$statusNew.'"');
+                
+                $sender = $this->get('fos_message.sender');
+                $sender->send($threadBuilder->getMessage());     
+            }
+    //email        
 
             return $this->redirectToRoute('commission_edit', array('id' => $commission->getId()));
         }
