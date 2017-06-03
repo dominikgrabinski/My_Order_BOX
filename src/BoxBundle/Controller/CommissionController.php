@@ -69,8 +69,15 @@ class CommissionController extends Controller
             $sender->send($threadBuilder->getMessage());
         
         //email
-            
-            
+            $adminEmail = $commission->getAdmin()->getEmail();
+            $userEmail = $commission->getUser()->getEmail();
+            $newEmail = \Swift_Message::newInstance()
+                    ->setSubject('Rozpoczęcie pracy nad zleceniem: '.$commissionTitle)
+                    ->setFrom($adminEmail)
+                    ->setTo($userEmail)
+                    ->setBody('Witaj '.$sendToUser . '. Status twojego zlecenia to: "'.$status.'". O dalszych pracach będziesz informowany we wiadomościach oraz emailach.');
+            $this->get('mailer')->send($newEmail);
+                    
             
             
             return $this->redirectToRoute('commission_show', array('id' => $commission->getId()));
@@ -135,7 +142,17 @@ class CommissionController extends Controller
                 $sender->send($threadBuilder->getMessage());     
             }
     //email        
-
+                $adminMail = $commission->getAdmin()->getEmail();
+                $userMail = $commission->getUser()->getEmail();
+                
+                $newEmail = \Swift_Message::newInstance()
+                        ->setSubject('Zmiana dotycząca statusu zlecenia '.$commissionTitle)
+                        ->setFrom($adminMail)
+                        ->setTo($userMail)
+                        ->setBody('Witaj '.$sendToUser . '. Status twojego zlecenia został zmieniony z "'.$statusOld. '" na "'.$statusNew.'"');
+                        
+            $this->get('mailer')->send($newEmail);
+            
             return $this->redirectToRoute('commission_edit', array('id' => $commission->getId()));
         }
 
