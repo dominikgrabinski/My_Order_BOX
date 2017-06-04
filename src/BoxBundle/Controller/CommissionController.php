@@ -63,7 +63,7 @@ class CommissionController extends Controller
                     ->addRecipient($sendToUser)
                     ->setSender($sender)
                     ->setSubject('Rozpoczęcie pracy nad zleceniem: '.$commissionTitle)
-                    ->setBody('Witaj '.$sendToUser . '. Status twojego zlecenia to: "'.$status.'". O dalszych pracach będziesz informowany we wiadomościach ');
+                    ->setBody('Witaj '.$sendToUser . '. Status twojego zlecenia to: "'.$status.'". O dalszych pracach będziesz informowany w wiadomościach oraz emailach');
             
             $sender = $this->get('fos_message.sender');
             $sender->send($threadBuilder->getMessage());

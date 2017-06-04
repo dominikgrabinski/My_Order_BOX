@@ -6,7 +6,13 @@
     <div class="container">
         <div class="pull-right">
             <h3>
-                <p class="bg-info">Witaj: {{ app.user }}</p>
+                <div class="bg-info">Witaj: {{ app.user }}
+                <a href="{{ path('fos_message_inbox') }}">
+                            <button type="button" class="btn btn-default">
+                                Wiadomości <span class="badge">{{ fos_message_nb_unread() }}</span>
+                            </button>
+                        </a>
+                </div>            
             </h3>    
                     <a href="{{ path('box_user_user') }}">
                         <button type="button" class="btn btn-info">
