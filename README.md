@@ -33,5 +33,8 @@
 
     Aplication send message and email to customer every single change status for commission.
 
-![opis](link)
+5. Screenshots:
+![Main_page](https://github.com/dominikgrabinski/My_Order_BOX/blob/master/web/screenshots/My_Business_PUSH.png)
+![User_page](https://github.com/dominikgrabinski/My_Order_BOX/blob/master/web/screenshots/User_page.png)
+![Admin_panel](https://github.com/dominikgrabinski/My_Order_BOX/blob/master/web/screenshots/Admin_panel.png)
 
