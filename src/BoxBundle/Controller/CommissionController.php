@@ -25,10 +25,14 @@ class CommissionController extends Controller
      */
     public function indexAction()
     {
+        $user = $this->getUser()->getId();
         $em = $this->getDoctrine()->getManager();
-
-        $commissions = $em->getRepository('BoxBundle:Commission')->findAll();
-
+        $em->getRepository('BoxBundle:Commission')->findAll();
+        
+        if ($this->get('security.context')->isGranted('ROLE_ADMIN')){
+            $query = $em->createQuery('SELECT commission FROM BoxBundle:Commission commission WHERE commission.admin ='.$user);
+        }
+        $commissions = $query->getResult();
         return $this->render('commission/index.html.twig', array(
             'commissions' => $commissions,
         ));

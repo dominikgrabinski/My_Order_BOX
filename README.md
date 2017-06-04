@@ -20,8 +20,8 @@
     - title
 
 3. Views:
-    - main paige: login or registration
-    - alffer login -> user main paige with all commissions concerns this user
+    - main page: login or registration
+    - alffer login -> user main page with all commissions concerns this user
     - if is grnated -> access to admin penel 
     Admin panel:
       3 main funcitons:
