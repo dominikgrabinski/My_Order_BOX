@@ -1,76 +1,37 @@
-# My_Order_BOX #
+# My Bussiness PUSH #
 
-1. Cel biznesowy - zmniejszenie połączeń telefonicznych zleceniodawcy ze zleceniobiorcą
-    
-    Aplikacja posiada możliwość informowania zleceniodawcy o statusie jego zlecenia/zleceń przez:
-       - email 
-       - SMS
-    
-    Admin (właściciel firmy) będzię mógł zmienić status danego zlecenia, o czym zleceniodawca będzie informowany w ww sposób.
+1. Business targer - reduction of phone calls between customer (user) and employer (admin). 
 
-2. Model Danych
+2. Data Model:
+ - create user/admin by FOSUserBundle update with email and phone (add during registration)
+ - message system by FOSMessageBundle
+ - class Commission: 
+    - id
+    - KERG number
+    - id_admin
+    - id_user
+    - id_status
+    - title
+    - add_date
+    - status_date
 
-    Users:
-        - admin jako właściciel firmy/wykonawca zlecenia -> jeden do wielu (order)
-        - user -> jeden do wielu (order)
-        Struktura:
-            -id
-            -name
-            -surname
-            -email
-            -phone
-            -address
+ - class Status:
+    - id
+    - title
 
-    Commission:
-        Struktura:
-            - id 
-            - numer kat zlecenia (KERG)
-            - tytuł
-            - REL id_usera (zleceniodawcy) -> wiele (zamówień) do jednego (usera)
-            - REL id_company (właściciela) -> wiele (zamówień) do jednego admina/wykonawcy
-            - data przyjęcia zamównia
-            - REL id_status -> jeden do jednego (status)
-            - data statusu (zmiany statusu)
-    
-    Status: (odnoszący się do Order -> jeden do jednego)
-        -> id
-        -> tytuł: 
-            - zgłoszenie pracy
-            - odebranie materiałów
-            - wykonanie pomiaru 
-            - złożenie operatu
-            - przekazanie operatu do ośrodka - nadanie mocy prawnej od 2 tyg do 1 miesiąca
-            - odebranie operatu z ośrodka
-            - przekazanie operatu zleceniodawcy
-            - zakończenie zlecenia
-    
-    
-    History:
-        - id
-        - id_admina
-        - id_zleceniodawcy
-        - id_zamównienia
-        - tytul_statusu
-        - data_statusu
+3. Views:
+    - main paige: login or registration
+    - alffer login -> user main paige with all commissions concerns this user
+    - if is grnated -> access to admin penel 
+    Admin panel:
+      3 main funcitons:
+        - add commission
+        - see all commissions
+        - all actions about status (index, new, edit, show)
 
+4. Processes
 
-3. Widoki
-    strona logowania
+    Aplication send message and email to customer every single change status for commission.
 
-    dla Admina (w postaci tabularycznej):
-        pełnoprawny dostęp do wszystkich zleceń o
-    dla Uzytkownika (też tabularyczie):
-        widok tylko dla zleceń związanych zleceniodawcy
+![opis](link)
 
-4. Procesy
-
-    Admin: 
-    - dodawanie/usuwanie/archiwizowanie zleceń
-    - zmiany statusu np w formie rozwilajnego menu, przy zmianie info do zleceniodawcy
-
-    Zleceniodawca (customer)
-    - sprawdzenie statusu zlecenia 
-    - sprawdzenie historii odnosnie zamówienia
-
-TO DO:
-change relation in history

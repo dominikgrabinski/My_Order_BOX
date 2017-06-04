@@ -14,6 +14,7 @@
             <tr>
                 <th>Id</th>
                 <th>Title</th>
+                <th>User</th>
                 <th>Kerg</th>
                 <th>Adddate</th>
                 <th>Statusdate</th>
@@ -21,13 +22,23 @@
             </tr>
         </thead>
         <tbody>
+        {% if app.user %}    
         {% for commission in commissions %}
             <tr>
-                <td><a href="{{ path('commission_show', { 'id': commission.id }) }}">{{ commission.id }}</a></td>
+                <td>
+                    <a href="{{ path('commission_show', { 'id': commission.id }) }}">
+                        {{ commission.id }}
+                    </a>
+                </td>
                 <td>{{ commission.title }}</td>
+                <td>{{ commission.user }}</td>
                 <td>{{ commission.kERG }}</td>
-                <td>{% if commission.addDate %}{{ commission.addDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if commission.statusDate %}{{ commission.statusDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if commission.addDate %}
+                    {{ commission.addDate|date('Y-m-d H:i:s') }}
+                    {% endif %}</td>
+                <td>{% if commission.statusDate %}
+                    {{ commission.statusDate|date('Y-m-d H:i:s') }}
+                    {% endif %}</td>
                 <td>
                     <ul>
                         <li>
@@ -48,6 +59,7 @@
                 </td>
             </tr>
         {% endfor %}
+        {% endif %}
         </tbody>
     </table>
     </div>
