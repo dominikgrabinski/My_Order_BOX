@@ -34,7 +34,10 @@
     Aplication send message and email to customer every single change status for commission.
 
 5. Screenshots:
+- main page:
 ![Main_page](https://github.com/dominikgrabinski/My_Order_BOX/blob/master/web/screenshots/My_Business_PUSH.png)
+- user page:
 ![User_page](https://github.com/dominikgrabinski/My_Order_BOX/blob/master/web/screenshots/User_page.png)
+- admin panel:
 ![Admin_panel](https://github.com/dominikgrabinski/My_Order_BOX/blob/master/web/screenshots/Admin_panel.png)
 
