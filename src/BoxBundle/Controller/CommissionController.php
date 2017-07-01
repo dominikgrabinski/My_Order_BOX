@@ -154,7 +154,7 @@ class CommissionController extends Controller
                         ->setFrom($adminMail)
                         ->setTo($userMail)
                         ->setBody('Witaj '.$sendToUser . '. Status twojego zlecenia został zmieniony z "'.$statusOld. '" na "'.$statusNew.'"');
-                        
+          //  $mailer->send($newEmail);            
             $this->get('mailer')->send($newEmail);
             
             return $this->redirectToRoute('commission_edit', array('id' => $commission->getId()));
